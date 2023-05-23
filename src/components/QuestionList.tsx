@@ -1,7 +1,6 @@
 import React from 'react';
 import Question from './Question';
 
-// Użyj tego samego typu, co w Question.tsx
 type Answer = {
   text: string;
   isActive: boolean;

@@ -46,13 +46,16 @@ const Question: React.FC<QuestionProps> = ({ id, text, answers, onSelectAnswer }
       <p>{text}</p>
       {answers.map((answer, index) => (
         <button
-          key={index}
-          onClick={() => onSelectAnswer(id, answer.text)}
-          disabled={!answer.isActive}
-          style={answer.isClicked ? selectedButtonStyle : buttonStyle} 
-        >
-          {answer.text}
-        </button>
+        key={index}
+        onClick={() => onSelectAnswer(id, answer.text)}
+        disabled={!answer.isActive}
+        style={{
+          ...buttonStyle,
+          backgroundColor: answer.isClicked ? 'green' : '#007BFF',
+        }}
+      >
+        {answer.text}
+      </button>
       ))}
     </div>
   );
