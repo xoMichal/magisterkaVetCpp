@@ -5,6 +5,7 @@ import Question from './Question';
 type Answer = {
   text: string;
   isActive: boolean;
+  isClicked: boolean;
 }
 
 type QuestionData = {
