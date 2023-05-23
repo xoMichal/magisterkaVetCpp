@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import QuestionList from './components/QuestionList';
 import Diagnostic from './components/Diagnostic';
 import { diagnosticEngine } from './components/diagnosticEngine';
+import './App.css';
 
 type Answer = {
   text: string;
@@ -469,7 +470,7 @@ function App() {
   
     setQuestions(updatedQuestions);
   
-    if (updatedQuestions.every(question => question.answers.some((answer: { isActive: any; }) => !answer.isActive))) {
+    if (updatedQuestions.every(question => question.answers.some((answer: { isActive:boolean }) => !answer.isActive))) {
       setDiagnosis('Wygenerowana diagnoza lub postępowanie');
     }
   };
@@ -477,6 +478,7 @@ function App() {
 
   return (
     <div>
+      <div className='App-header'> VetApp </div>
       <QuestionList questions={questions} onSelectAnswer={onSelectAnswer} />
       {diagnosis && <Diagnostic text={diagnosis} />}
     </div>
