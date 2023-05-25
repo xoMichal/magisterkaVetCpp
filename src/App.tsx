@@ -29,8 +29,8 @@ const initialQuestions: QuestionData[] = [
     id: 2,
     text: 'Czy kot ma napady padaczkowe?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [4,5,6,7,8,9,10,11,12,14] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [3,15,16,17,18,19,20] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [4,5,6,7,8,9,10,11,12,14] },//include[3,15,16,17,18,19,20]
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [3,15,16,17,18,19,20] },//include[4,5,6,7,8,9,10,11,12,14]
       { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -38,8 +38,8 @@ const initialQuestions: QuestionData[] = [
     id: 4,
     text: 'Czy kot ma powiększenie obrysu jamy brzusznej?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [5,6] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [3,15,16,17,18,19,20] },//include[5,6,7,8,9,10,11,12,14]
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [5,6,7,8,9,10,11,12,14] },
       { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -47,48 +47,48 @@ const initialQuestions: QuestionData[] = [
     id: 21,
     text: 'Czy pies jest po urazie?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [50,51,52,53,54] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [22] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49] },//include[22,50,51,52,53,54]
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [22,50,51,52,53,54] },
     ],
   },
   {
     id: 23,
     text: 'Czy u psa występuje biegunka?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [24,31,32,33,34,] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [39,40,41,42,43,44,46,47,49] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [22,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,45,48,49,50,51,52,53,54] },//include[39,49,40,48,41,42,43,44,46,47]
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46,47,44,43,42,41,40,48,49,39] },
     ],
   },
   {
     id: 24,
     text: 'Czy u psa występuje świąd?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [22,28,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54] }, //include[25,26,27,29,30]
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [25,26,27,29,30] },
     ],
   },
   {
     id: 31,
     text: 'Czy występują wyłysienia?',
     answers: [
-      { text: 'występują', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie występują', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'występują', isActive: false, isClicked: false, excludesQuestions: [22,32,33,34,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54] },//included[35,36,37,38]
+      { text: 'nie występują', isActive: false, isClicked: false, excludesQuestions: [35,36,37,38] },
     ],
   },
   {
     id: 32,
     text: 'Czy znaleziono na ciele jakieś guzy?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [33,34] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [22,25,26,27,28,29,30,31,32,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54] },//included[33,34]
     ],
   },
   {
     id: 33,
     text: 'Czy znaleziono owrzodzenia?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [34] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [33,22,25,26,27,28,29,30,31,32,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54] },
     ],
   },
   {
@@ -103,7 +103,7 @@ const initialQuestions: QuestionData[] = [
     id: 3,
     text: 'Czy możesz stwierdzić u kota stan padaczkowy?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [15,16,17,18,19,20] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -112,7 +112,7 @@ const initialQuestions: QuestionData[] = [
     id: 5,
     text: 'Czy w okolicy żołądka jest wypuk bębenkowy?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [6,7,8,9,10,12,11,14] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -120,7 +120,7 @@ const initialQuestions: QuestionData[] = [
     id: 22,
     text: 'Czy wszedł o własnych siłach?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [50,51,52,53,54,46,47,44,43,42,41,40,48,49,39,27,29,30,26,25] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -128,8 +128,8 @@ const initialQuestions: QuestionData[] = [
     id: 39,
     text: 'Czy występują również wymioty?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [49] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46,47,44,43,42,41,40] },
     ],
   },
   {
@@ -137,7 +137,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy znaleziono pasożyty?',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [27,29,30,26] },
     ],
   },
   {
@@ -153,14 +153,14 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy występuje bladość błon śluzowych i ostry brzuch?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [7,8,9,10,11,12,14] },
     ],
   },
   {
     id: 7,
     text: 'Czy zwierzę miało kontakt z trucizną?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [8,9,10,11,12,14] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
@@ -169,15 +169,15 @@ const initialQuestions: QuestionData[] = [
     id: 8,
     text: 'Czy zwierzę jest płci żeńskiej?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [14,12,11] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [9] },
     ],
   },
   {
     id: 9,
     text: 'Czy w badaniu RTG/USG widać zmiany w prostacie?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [10] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -185,7 +185,7 @@ const initialQuestions: QuestionData[] = [
     id: 10,
     text: 'Czy zmiany występują w pęcherzu moczowym?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [11] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   }, {
@@ -200,8 +200,8 @@ const initialQuestions: QuestionData[] = [
     id: 12,
     text: 'Czy w badaniu RTG/USG widać zmiany w macicy/jajnikach?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [10,11] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [14] },
     ],
   },
   {
@@ -216,7 +216,7 @@ const initialQuestions: QuestionData[] = [
     id: 15,
     text: 'Czy kot zjadł coś podejrzewanego lub mógł mieć kontakt z substancją trującą?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [16,17,18,19,20] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
@@ -226,14 +226,14 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy u kota w momencie wystąpienia problemów atak pojawił się po raz pierwszy?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [17,18,19,20] },
     ],
   },
   {
     id: 17,
     text: 'Czy poziom insuliny jest podwyższony lub prawidłowy?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [18,19,20] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -242,14 +242,14 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy poziom insuliny jest obniżony?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [19,20] },
     ],
   },
   {
     id: 19,
     text: 'Czy poziom mocznika jest obniżony a parametry wątrobowe są podwyższone?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [20] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -269,7 +269,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Postępowanie zastosowanie profilaktycznego zwalczania pcheł. Czy świąd ustał?',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [27,29,30] },
     ],
   },
   {
@@ -277,7 +277,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Postępowanie proszę wykonać badanie poznawcze na obecność świerzbu. Czy znaleziono objawy świerzbu',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [29,30] },
     ],
   },
   {
@@ -293,7 +293,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Postępowanie proszę wykonać cytologię. Czy cytologia wykazała brak mikroorganizmów?',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [30] },
     ],
   },
   {
@@ -310,7 +310,7 @@ const initialQuestions: QuestionData[] = [
     id: 36,
     text: 'Czy badania wskazały na obecność pasożytów?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [37,38] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -319,7 +319,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy łysienie jest symetrycznie rozsiane?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [38] },
     ],
   },
   {
@@ -335,8 +335,8 @@ const initialQuestions: QuestionData[] = [
     id: 40,
     text: 'Czy objawy są przewlekłe?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [48] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46,47,44,43,42,41] },
     ],
   },
   {
@@ -344,7 +344,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy zlecono badanie morfologiczne krwi, biochemiczne surowicy i badanie kału?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46,47,44,43,42] },
     ],
   },
   {
@@ -352,7 +352,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy badanie morfologiczne lub biochemiczne nie było w normie?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46,47,44,43] },
     ],
   },
   {
@@ -360,7 +360,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy badanie kału również było poza normą?',
     answers: [
       { text: 'Tak było poza normą', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'Nie, było w normie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'Nie, było w normie', isActive: false, isClicked: false, excludesQuestions: [47,46,44] },
     ],
   },
   {
@@ -375,7 +375,7 @@ const initialQuestions: QuestionData[] = [
     id: 46,
     text: 'Czy znaleziono coś niepokojącego podczas badania USG?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [47] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -407,8 +407,8 @@ const initialQuestions: QuestionData[] = [
     id: 50,
     text: 'Czy oddycha?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [53,54] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [51,52] },
     ],
   },
   {
@@ -416,7 +416,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy liczba oddechów jest prawidłowa?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [52] },
     ],
   },
   {
@@ -432,7 +432,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Przystąpiono do podstawowej resuscytacji?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [54] },
     ],
   },
   {
