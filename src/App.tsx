@@ -1,4 +1,4 @@
-import React, { useState, CSSProperties } from 'react';
+import React, { useState, CSSProperties, useRef, useEffect } from 'react';
 import './App.css'
 
 type Answer = {
@@ -14,6 +14,18 @@ type QuestionData = {
   answers: Answer[];
   isActive?: boolean;
 }
+type Rule = {
+  questionId: number;
+  expectedAnswer: string;
+};
+
+type DiagnosisRule = {
+  diagnosis: string;
+  rules: Rule[];
+};
+
+
+
 
 // Właściwe dane pytań zastąp danymi z treści zadania
 const initialQuestions: QuestionData[] = [
@@ -467,10 +479,605 @@ const questionContainerStyle: CSSProperties = {
   margin: '10px 0',
 };
 
+const diagnosisRules: DiagnosisRule[] = [
+  {
+    diagnosis: 'Postępowanie wykonaj dalszą diagnostykę',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'nie' },
+      { questionId: 4, expectedAnswer: 'tak' },
+      { questionId: 5, expectedAnswer: 'nie' },
+      { questionId: 6, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Skręt żołądka',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'nie' },
+      { questionId: 4, expectedAnswer: 'tak' },
+      { questionId: 5, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie: Wykonaj badanie krwi!',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'nie' },
+      { questionId: 4, expectedAnswer: 'tak' },
+      { questionId: 5, expectedAnswer: 'nie' },
+      { questionId: 6, expectedAnswer: 'tak' },
+      { questionId: 7, expectedAnswer: 'nie' },
+      { questionId: 8, expectedAnswer: 'nie' },
+      { questionId: 12, expectedAnswer: 'nie' },
+      { questionId: 10, expectedAnswer: 'nie' },
+      { questionId: 11, expectedAnswer: 'tak' },
+    ],
+  },
+   {
+      diagnosis: 'Postępowanie: Proszę wykonać USG narządów wewnętrznych',
+      rules: [
+        { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'tak' },
+      { questionId: 3, expectedAnswer: 'nie' },
+      { questionId: 15, expectedAnswer: 'nie' },
+      { questionId: 16, expectedAnswer: 'tak' },
+      { questionId: 17, expectedAnswer: 'nie' },
+      { questionId: 18, expectedAnswer: 'nie' },
+      ],
+    },
+  {
+    diagnosis: 'Diagnoza Zatrucie',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'nie' },
+      { questionId: 4, expectedAnswer: 'tak' },
+      { questionId: 5, expectedAnswer: 'nie' },
+      { questionId: 6, expectedAnswer: 'tak' },
+      { questionId: 7, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Rozrost nowotworowy',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'nie' },
+      { questionId: 4, expectedAnswer: 'tak' },
+      { questionId: 5, expectedAnswer: 'nie' },
+      { questionId: 6, expectedAnswer: 'tak' },
+      { questionId: 7, expectedAnswer: 'nie' },
+      { questionId: 8, expectedAnswer: 'nie' },
+      { questionId: 12, expectedAnswer: 'nie' },
+      { questionId: 10, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Otyłość',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'nie' },
+      { questionId: 4, expectedAnswer: 'tak' },
+      { questionId: 5, expectedAnswer: 'nie' },
+      { questionId: 6, expectedAnswer: 'tak' },
+      { questionId: 7, expectedAnswer: 'nie' },
+      { questionId: 8, expectedAnswer: 'nie' },
+      { questionId: 12, expectedAnswer: 'nie' },
+      { questionId: 10, expectedAnswer: 'nie' },
+      { questionId: 11, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie Wykonaj badanie krwi!',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'nie' },
+      { questionId: 4, expectedAnswer: 'nie' },
+      
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Przerost/torbiele prostaty',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'nie' },
+      { questionId: 4, expectedAnswer: 'tak' },
+      { questionId: 5, expectedAnswer: 'nie' },
+      { questionId: 6, expectedAnswer: 'tak' },
+      { questionId: 7, expectedAnswer: 'nie' },
+      { questionId: 8, expectedAnswer: 'tak' },
+      { questionId: 9, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Ciąża',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'nie' },
+      { questionId: 4, expectedAnswer: 'tak' },
+      { questionId: 5, expectedAnswer: 'nie' },
+      { questionId: 6, expectedAnswer: 'tak' },
+      { questionId: 7, expectedAnswer: 'nie' },
+      { questionId: 8, expectedAnswer: 'nie' },
+      { questionId: 12, expectedAnswer: 'tak' },
+      { questionId: 14, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza rozrost endometrium',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'nie' },
+      { questionId: 4, expectedAnswer: 'tak' },
+      { questionId: 5, expectedAnswer: 'nie' },
+      { questionId: 6, expectedAnswer: 'tak' },
+      { questionId: 7, expectedAnswer: 'nie' },
+      { questionId: 8, expectedAnswer: 'nie' },
+      { questionId: 12, expectedAnswer: 'tak' },
+      { questionId: 14, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Wyspiak trzustkowy!',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'tak' },
+      { questionId: 3, expectedAnswer: 'nie' },
+      { questionId: 15, expectedAnswer: 'nie' },
+      { questionId: 16, expectedAnswer: 'tak' },
+      { questionId: 17, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Hepatopatia.',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'tak' },
+      { questionId: 3, expectedAnswer: 'nie' },
+      { questionId: 15, expectedAnswer: 'nie' },
+      { questionId: 16, expectedAnswer: 'tak' },
+      { questionId: 17, expectedAnswer: 'nie' },
+      { questionId: 18, expectedAnswer: 'tak' },
+      { questionId: 19, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Nowotwór',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'tak' },
+      { questionId: 3, expectedAnswer: 'nie' },
+      { questionId: 15, expectedAnswer: 'nie' },
+      { questionId: 16, expectedAnswer: 'tak' },
+      { questionId: 17, expectedAnswer: 'nie' },
+      { questionId: 18, expectedAnswer: 'tak' },
+      { questionId: 19, expectedAnswer: 'nie' },
+      { questionId: 20, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Choroba idiopatyczna',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'tak' },
+      { questionId: 3, expectedAnswer: 'nie' },
+      { questionId: 15, expectedAnswer: 'nie' },
+      { questionId: 16, expectedAnswer: 'tak' },
+      { questionId: 17, expectedAnswer: 'nie' },
+      { questionId: 18, expectedAnswer: 'tak' },
+      { questionId: 19, expectedAnswer: 'nie' },
+      { questionId: 20, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Postepowanie Wykonaj badania krwi i zleć konsultację neurologiczną',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'tak' },
+      { questionId: 3, expectedAnswer: 'nie' },
+      { questionId: 15, expectedAnswer: 'nie' },
+      { questionId: 16, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Podejrzenie zatrucia i ewentualne wykazanie toksyn w organizmie',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'tak' },
+      { questionId: 3, expectedAnswer: 'nie' },
+      { questionId: 15, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie, lecz doraźnie, pobierz krew do badań.',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
+      { questionId: 2, expectedAnswer: 'tak' },
+      { questionId: 3, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Pasożyty. Postępowanie Zweryfikować pasożyty i zastosować odpowiednie leczenie przeciwpasożytnicze',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'nie' },
+      { questionId: 31, expectedAnswer: 'tak' },
+      { questionId: 35, expectedAnswer: 'tak' },
+      { questionId: 36, expectedAnswer: 'tak' },
+      
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Pchły. Postępowanie pouczyć właściciela odpowiednim planem postępowania',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'tak' },
+      { questionId: 25, expectedAnswer: 'nie' },
+      { questionId: 26, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza alergia. Postępowanie proszę zastosować dietę eliminacyjną',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'tak' },
+      { questionId: 25, expectedAnswer: 'nie' },
+      { questionId: 26, expectedAnswer: 'nie' },
+      { questionId: 27, expectedAnswer: 'nie' },
+      { questionId: 29, expectedAnswer: 'tak' },
+
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie Proszę podać właściwe antybiotyki',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'tak' },
+      { questionId: 25, expectedAnswer: 'nie' },
+      { questionId: 26, expectedAnswer: 'nie' },
+      { questionId: 27, expectedAnswer: 'nie' },
+      { questionId: 29, expectedAnswer: 'nie' },
+      { questionId: 30, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie proszę zlecić biopsję. Prawdopodobna diagnoza nowotwór',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'nie' },
+      { questionId: 31, expectedAnswer: 'nie' },
+      { questionId: 32, expectedAnswer: 'nie' },
+      { questionId: 33, expectedAnswer: 'nie' },
+      { questionId: 34, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie Proszę wykonać cytologię. Prawdopodobna diagnoza ropowica połączeń śluzowo-skórnych',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'nie' },
+      { questionId: 31, expectedAnswer: 'nie' },
+      { questionId: 32, expectedAnswer: 'nie' },
+      { questionId: 33, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie proszę wykonać biopsję',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'nie' },
+      { questionId: 31, expectedAnswer: 'nie' },
+      { questionId: 32, expectedAnswer: 'tak' },
+    ],
+  },
+
+  {
+    diagnosis: 'Potencjalna diagnoza Leiszmanioza',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'nie' },
+      { questionId: 31, expectedAnswer: 'nie' },
+      { questionId: 32, expectedAnswer: 'nie' },
+      { questionId: 33, expectedAnswer: 'nie' },
+      { questionId: 34, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie proszę wykonać biopsję i zinterpretować wyniki',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'nie' },
+      { questionId: 31, expectedAnswer: 'tak' },
+      { questionId: 35, expectedAnswer: 'tak' },
+      { questionId: 36, expectedAnswer: 'nie' },
+      { questionId: 37, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Pasożyty. Postępowanie Proszę wykonać dermatolofizę',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'tak' },
+      { questionId: 25, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza niedoczynność tarczycy. Postępowanie Proszę podjąć leczenie.',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'nie' },
+      { questionId: 31, expectedAnswer: 'tak' },
+      { questionId: 35, expectedAnswer: 'tak' },
+      { questionId: 36, expectedAnswer: 'nie' },
+      { questionId: 37, expectedAnswer: 'tak' },
+      { questionId: 38, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Choroby wrodzone lub łysienie rozjaśnienie.',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'nie' },
+      { questionId: 31, expectedAnswer: 'tak' },
+      { questionId: 35, expectedAnswer: 'tak' },
+      { questionId: 36, expectedAnswer: 'nie' },
+      { questionId: 37, expectedAnswer: 'tak' },
+      { questionId: 38, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie Proszę zlecić wymagane badania w celu dalszej diagnozy',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'tak' },
+      { questionId: 39, expectedAnswer: 'tak' },
+      { questionId: 40, expectedAnswer: 'tak' },
+      { questionId: 41, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza choroba ogólnoustrojowa, zastosuj leczenie antybiotykowe',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'tak' },
+      { questionId: 39, expectedAnswer: 'tak' },
+      { questionId: 40, expectedAnswer: 'tak' },
+      { questionId: 41, expectedAnswer: 'tak' },
+      { questionId: 42, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Brak 100% diagnozy, proszę wykonać dodatkowe badania',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'tak' },
+      { questionId: 39, expectedAnswer: 'tak' },
+      { questionId: 40, expectedAnswer: 'tak' },
+      { questionId: 41, expectedAnswer: 'tak' },
+      { questionId: 42, expectedAnswer: 'nie' },
+      { questionId: 43, expectedAnswer: 'tak' },
+      { questionId: 44, expectedAnswer: 'tak' },
+      { questionId: 46, expectedAnswer: 'nie' },
+      { questionId: 47, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Brak 100% diagnozy, proszę wykonać dodatkowe badania',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'tak' },
+      { questionId: 25, expectedAnswer: 'nie' },
+      { questionId: 26, expectedAnswer: 'nie' },
+      { questionId: 27, expectedAnswer: 'nie' },
+      { questionId: 29, expectedAnswer: 'nie' },
+      { questionId: 30, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie proszę przystąpić do działań chirurgicznych',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'tak' },
+      { questionId: 39, expectedAnswer: 'tak' },
+      { questionId: 40, expectedAnswer: 'tak' },
+      { questionId: 41, expectedAnswer: 'tak' },
+      { questionId: 42, expectedAnswer: 'nie' },
+      { questionId: 43, expectedAnswer: 'tak' },
+      { questionId: 44, expectedAnswer: 'tak' },
+      { questionId: 46, expectedAnswer: 'nie' },
+      { questionId: 47, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie proszę zinterpretować nieprawidłowość i podjąć działanie chirurgiczne',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'tak' },
+      { questionId: 39, expectedAnswer: 'tak' },
+      { questionId: 40, expectedAnswer: 'tak' },
+      { questionId: 41, expectedAnswer: 'tak' },
+      { questionId: 42, expectedAnswer: 'nie' },
+      { questionId: 43, expectedAnswer: 'tak' },
+      { questionId: 44, expectedAnswer: 'tak' },
+      { questionId: 46, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza: świerzb. Postępowanie: Proszę zastosować leczenie przeciwświerzbowe',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'nie' },
+      { questionId: 24, expectedAnswer: 'tak' },
+      { questionId: 25, expectedAnswer: 'nie' },
+      { questionId: 26, expectedAnswer: 'nie' },
+      { questionId: 27, expectedAnswer: 'tak' },
+      
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Podejrzenie choroby ogólnoustrojowej',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'tak' },
+      { questionId: 39, expectedAnswer: 'tak' },
+      { questionId: 40, expectedAnswer: 'tak' },
+      { questionId: 41, expectedAnswer: 'tak' },
+      { questionId: 42, expectedAnswer: 'tak' },
+      { questionId: 43, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie zlecenie badań bakteryjnych. Potencjalna diagnoza Zatrucie bakteryjne układu pokarmowego',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'tak' },
+      { questionId: 39, expectedAnswer: 'tak' },
+      { questionId: 40, expectedAnswer: 'nie' },
+      { questionId: 48, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Zatrucie pokarmowe. Dodatkowe postępowanie Zrobienie testów alergicznych',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'tak' },
+      { questionId: 39, expectedAnswer: 'tak' },
+      { questionId: 40, expectedAnswer: 'nie' },
+      { questionId: 48, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie zlecić badania kału. Podać kroplówkę',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'tak' },
+      { questionId: 39, expectedAnswer: 'nie' },
+      { questionId: 49, expectedAnswer: 'nie' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza Zatrucie pokarmowe lub niestrawność, zalecana obserwacja',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'nie' },
+      { questionId: 23, expectedAnswer: 'tak' },
+      { questionId: 39, expectedAnswer: 'nie' },
+      { questionId: 49, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Diagnoza wstępna Pies jest poobijany, zleć dodatkowe badania',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'tak' },
+      { questionId: 22, expectedAnswer: 'tak' }
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie Wykonaj prześwietlenia i zaleć obserwację psa.',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+       { questionId: 21, expectedAnswer: 'tak' },
+       { questionId: 22, expectedAnswer: 'nie' },
+       { questionId: 50, expectedAnswer: 'tak' },
+       { questionId: 51, expectedAnswer: 'tak' },
+       { questionId: 52, expectedAnswer: 'nie' },
+    ],
+   },
+   {
+    diagnosis: 'Postępowanie Zatamuj krwawienie i podaj leki na zwiękrzenie krzepliwości krwi',
+    rules: [
+       { questionId: 1, expectedAnswer: 'pies' },
+       { questionId: 21, expectedAnswer: 'tak' },
+       { questionId: 22, expectedAnswer: 'nie' },
+       { questionId: 50, expectedAnswer: 'tak' },
+       { questionId: 51, expectedAnswer: 'tak' },
+       { questionId: 52, expectedAnswer: 'tak' },
+    ],
+  },
+  {
+    diagnosis: 'Postępowanie podepnij zestaw do monitorowania pracy serca i podaj odpowiednie leki',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'tak' },
+      { questionId: 22, expectedAnswer: 'nie' },
+      { questionId: 50, expectedAnswer: 'tak' },
+      { questionId: 51, expectedAnswer: 'nie' }
+    ],
+  },
+  {
+      diagnosis: 'Przystąp do resuscytacji',
+      rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'tak' },
+      { questionId: 22, expectedAnswer: 'nie' },
+      { questionId: 50, expectedAnswer: 'nie' },
+      { questionId: 53, expectedAnswer: 'nie' }
+      ],
+    },
+  {
+    diagnosis: 'Diagnoza Przeprowadź badanie mające na celu znalezienie złamań',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'tak' },
+      { questionId: 22, expectedAnswer: 'nie' },
+      { questionId: 50, expectedAnswer: 'nie' },
+      { questionId: 53, expectedAnswer: 'tak' },
+      { questionId: 54, expectedAnswer: 'tak' }
+    ],
+  },{
+    diagnosis: 'Diagnoza Zwierzę nie żyje',
+    rules: [
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'tak' },
+      { questionId: 22, expectedAnswer: 'nie' },
+      { questionId: 50, expectedAnswer: 'nie' },
+      { questionId: 53, expectedAnswer: 'tak' },
+      { questionId: 54, expectedAnswer: 'nie' }
+    ],
+  },
+];
+  
+
 function App() {
   const [questions, setQuestions] = useState(initialQuestions);
-  const [diagnosis, setDiagnosis] = useState('');
-  
+  const [diagnosis, setDiagnosis] = useState<string | null>(null);
+  const diagnosisRef = useRef<HTMLDivElement>(null);
   
   const onSelectAnswer = (id: number, answerText: string) => {
     const updatedQuestions = questions.map(question => {
@@ -500,7 +1107,31 @@ function App() {
       return question;
     });
 
+     // Sprawdzanie reguł diagnozy
+     const generateDiagnosis = (questions: QuestionData[], rules: DiagnosisRule[]): string | null => {
+      for (let i = 0; i < rules.length; i++) {
+        const rule = rules[i];
+        const allConditionsMet = rule.rules.every(({ questionId, expectedAnswer }) => {
+          const question = questions.find(q => q.id === questionId);
+          if (!question) return false;
+    
+          const answer = question.answers.find(a => a.isClicked);
+          return answer && answer.text === expectedAnswer;
+        });
+    
+        if (allConditionsMet) {
+          return rule.diagnosis;
+        }
+      }
+    
+      return null;
+    };
+    
+
     setQuestions(updatedQuestions);
+    // Aktualizacja diagnozy
+    const diagnosis = generateDiagnosis(updatedQuestions, diagnosisRules);
+    setDiagnosis(diagnosis);
   };
 
 
@@ -515,7 +1146,12 @@ function App() {
   };
 
 
-
+  useEffect(() => {
+    if (diagnosis && diagnosisRef.current) {
+      diagnosisRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [diagnosis]);
+  
 
   return (
     <>
@@ -540,7 +1176,10 @@ function App() {
             ))}
           </div>
         ))}
-        {diagnosis && <p>{diagnosis}</p>}
+        {diagnosis && <div ref={diagnosisRef} className="diagnosis-container">
+          <h2>Diagnoza:</h2>
+          <p>{diagnosis}</p>
+        </div>}
       </div>
     </>
   );
