@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/xoMichal/magisterkaVetCpp/static/css/main.c126bfae.css",
-    "main.js": "/xoMichal/magisterkaVetCpp/static/js/main.597566f0.js",
-    "static/js/787.e81c1d16.chunk.js": "/xoMichal/magisterkaVetCpp/static/js/787.e81c1d16.chunk.js",
-    "index.html": "/xoMichal/magisterkaVetCpp/index.html",
-    "main.c126bfae.css.map": "/xoMichal/magisterkaVetCpp/static/css/main.c126bfae.css.map",
-    "main.597566f0.js.map": "/xoMichal/magisterkaVetCpp/static/js/main.597566f0.js.map",
-    "787.e81c1d16.chunk.js.map": "/xoMichal/magisterkaVetCpp/static/js/787.e81c1d16.chunk.js.map"
+    "main.css": "/magisterkaVetCpp/static/css/main.c126bfae.css",
+    "main.js": "/magisterkaVetCpp/static/js/main.bb30016e.js",
+    "static/js/787.e81c1d16.chunk.js": "/magisterkaVetCpp/static/js/787.e81c1d16.chunk.js",
+    "index.html": "/magisterkaVetCpp/index.html",
+    "main.c126bfae.css.map": "/magisterkaVetCpp/static/css/main.c126bfae.css.map",
+    "main.bb30016e.js.map": "/magisterkaVetCpp/static/js/main.bb30016e.js.map",
+    "787.e81c1d16.chunk.js.map": "/magisterkaVetCpp/static/js/787.e81c1d16.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c126bfae.css",
-    "static/js/main.597566f0.js"
+    "static/js/main.bb30016e.js"
   ]
 }
