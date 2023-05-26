@@ -1,7 +1,7 @@
 {
   "name": "magisterka-vet-cpp",
   "version": "0.1.0",
-  "homepage": "https://github.com/xoMichal/magisterkaVetCpp",
+  "homepage": "https://xoMichal.github.io/magisterkaVetCpp",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
