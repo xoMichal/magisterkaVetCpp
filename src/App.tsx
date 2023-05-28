@@ -154,7 +154,7 @@ const initialQuestions: QuestionData[] = [
   },
   {
     id: 35,
-    text: 'Postępowanie proszę zlecić posiew i cytologię. Czy badania zostały wykonane?',
+    text: 'Postępowanie: Zlecić posiew i cytologię. Czy badania zostały wykonane?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
@@ -267,7 +267,7 @@ const initialQuestions: QuestionData[] = [
   },
   {
     id: 20,
-    text: 'Czy wynik MR, TK, badanie płynu mózgowo-rdzeniowego są nie prawidłowe?',
+    text: 'Czy wynik MR, TK, badanie płynu mózgowo-rdzeniowego są nieprawidłowe?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
@@ -278,7 +278,7 @@ const initialQuestions: QuestionData[] = [
   
   {
     id: 26,
-    text: 'Postępowanie zastosowanie profilaktycznego zwalczania pcheł. Czy świąd ustał?',
+    text: 'Postępowanie: zastosowanie profilaktycznego zwalczania pcheł. Czy świąd ustał?',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [27,29,30] },
@@ -286,7 +286,7 @@ const initialQuestions: QuestionData[] = [
   },
   {
     id: 27,
-    text: 'Postępowanie proszę wykonać badanie poznawcze na obecność świerzbu. Czy znaleziono objawy świerzbu',
+    text: 'Postępowanie: Wykonać badanie poznawcze na obecność świerzbu. Czy znaleziono objawy świerzbu',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [29,30] },
@@ -294,7 +294,7 @@ const initialQuestions: QuestionData[] = [
   },
   {
     id: 28,
-    text: 'Diagnoza świerzb. Postępowanie Proszę zastosować leczenie przeciw świerzbowe',
+    text: 'Diagnoza: świerzb. Postępowanie: Zastosować leczenie przeciw świerzbowe',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
@@ -302,7 +302,7 @@ const initialQuestions: QuestionData[] = [
   },
   {
     id: 29,
-    text: 'Postępowanie proszę wykonać cytologię. Czy cytologia wykazała brak mikroorganizmów?',
+    text: 'Postępowanie: Wykonać cytologię. Czy cytologia wykazała brak mikroorganizmów?',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [30] },
@@ -336,7 +336,7 @@ const initialQuestions: QuestionData[] = [
   },
   {
     id: 38,
-    text: 'Postępowanie Proszę wykonać hematologię i trichogram. Czy wyniki były prawidłowe',
+    text: 'Postępowanie: Wykonać hematologię i trichogram. Czy wyniki były prawidłowe',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
@@ -377,7 +377,7 @@ const initialQuestions: QuestionData[] = [
   },
   {
     id: 44,
-    text: 'Postępowanie Proszę wykonać badanie USG, Czy wykonano badanie?',
+    text: 'Postępowanie: Wykonać badanie USG, Czy wykonano badanie?',
     answers: [
       { text: 'Wykonano', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'Nie wykonano', isActive: false, isClicked: false, excludesQuestions: [] },
@@ -393,7 +393,7 @@ const initialQuestions: QuestionData[] = [
   },
   {
     id: 47,
-    text: 'Proszę wykonać laparotomię. Czy badanie wykazało jakieś nieprawidłości?',
+    text: 'Wykonać laparotomię. Czy badanie wykazało jakieś nieprawidłości?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
@@ -481,7 +481,7 @@ const questionContainerStyle: CSSProperties = {
 
 const diagnosisRules: DiagnosisRule[] = [
   {
-    diagnosis: 'Postępowanie wykonaj dalszą diagnostykę',
+    diagnosis: 'Postępowanie: wykonaj dalszą diagnostykę',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'nie' },
@@ -491,7 +491,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Skręt żołądka',
+    diagnosis: 'Diagnoza: Skręt żołądka',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'nie' },
@@ -515,7 +515,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
    {
-      diagnosis: 'Postępowanie: Proszę wykonać USG narządów wewnętrznych',
+      diagnosis: 'Postępowanie: Wykonaj USG narządów wewnętrznych',
       rules: [
         { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'tak' },
@@ -527,7 +527,7 @@ const diagnosisRules: DiagnosisRule[] = [
       ],
     },
   {
-    diagnosis: 'Diagnoza Zatrucie',
+    diagnosis: 'Diagnoza: Zatrucie trucizną niewiadomego pochodzenia',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'nie' },
@@ -538,7 +538,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Rozrost nowotworowy',
+    diagnosis: 'Diagnoza: Rozrost nowotworowy',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'nie' },
@@ -552,7 +552,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Otyłość',
+    diagnosis: 'Diagnoza: Otyłość',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'nie' },
@@ -567,7 +567,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie Wykonaj badanie krwi!',
+    diagnosis: 'Postępowanie: Wykonaj badanie krwi!',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'nie' },
@@ -576,7 +576,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Przerost/torbiele prostaty',
+    diagnosis: 'Diagnoza: Przerost/torbiele prostaty',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'nie' },
@@ -589,7 +589,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Ciąża',
+    diagnosis: 'Diagnoza: Ciąża',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'nie' },
@@ -603,7 +603,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza rozrost endometrium',
+    diagnosis: 'Diagnoza: rozrost endometrium',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'nie' },
@@ -617,7 +617,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Wyspiak trzustkowy!',
+    diagnosis: 'Diagnoza: Wyspiak trzustkowy',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'tak' },
@@ -628,7 +628,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Hepatopatia.',
+    diagnosis: 'Diagnoza: Hepatopatia',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'tak' },
@@ -641,7 +641,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Nowotwór',
+    diagnosis: 'Diagnoza: Zmiana nowotworowa. Postępowanie: rozszerz diagnostykę ',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'tak' },
@@ -655,7 +655,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Choroba idiopatyczna',
+    diagnosis: 'Diagnoza: Choroba idiopatyczna',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'tak' },
@@ -669,7 +669,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postepowanie Wykonaj badania krwi i zleć konsultację neurologiczną',
+    diagnosis: 'Postepowanie: Wykonaj badania krwi i zleć konsultację neurologiczną',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'tak' },
@@ -679,7 +679,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Podejrzenie zatrucia i ewentualne wykazanie toksyn w organizmie',
+    diagnosis: 'Diagnoza: Podejrzenie zatrucia i ewentualne wykazanie toksyn w organizmie',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'tak' },
@@ -688,7 +688,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie, lecz doraźnie, pobierz krew do badań.',
+    diagnosis: 'Postępowanie: lecz doraźnie, pobierz krew do badań.',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'tak' },
@@ -696,7 +696,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Pasożyty. Postępowanie Zweryfikować pasożyty i zastosować odpowiednie leczenie przeciwpasożytnicze',
+    diagnosis: 'Diagnoza: Zakażenie pasożytnicze. Postępowanie: Zweryfikować pasożyty i zastosować odpowiednie leczenie przeciwpasożytnicze',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -709,7 +709,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Pchły. Postępowanie pouczyć właściciela odpowiednim planem postępowania',
+    diagnosis: 'Diagnoza: Alergiczne pchle zapalenie skóry. Postępowanie: wdrożyć leczenie przeciwpasożytnicze i przeciwświądowe.',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -720,7 +720,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza alergia. Postępowanie proszę zastosować dietę eliminacyjną',
+    diagnosis: 'Diagnoza: alergia. Postępowanie: Zastosować dietę eliminacyjną i zastosować preparaty przeciwświądowe',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -734,7 +734,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie Proszę podać właściwe antybiotyki',
+    diagnosis: 'Postępowanie: Podać właściwe antybiotyki',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -748,7 +748,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie proszę zlecić biopsję. Prawdopodobna diagnoza nowotwór',
+    diagnosis: 'Postępowanie: Zlecić biopsję. Prawdopodobna Diagnoza: nowotwór',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -761,7 +761,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie Proszę wykonać cytologię. Prawdopodobna diagnoza ropowica połączeń śluzowo-skórnych',
+    diagnosis: 'Postępowanie: Wykonać cytologię. Prawdopodobna Diagnoza: ropowica połączeń śluzowo-skórnych',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -773,7 +773,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie proszę wykonać biopsję',
+    diagnosis: 'Postępowanie: Wykonać biopsję',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -785,7 +785,7 @@ const diagnosisRules: DiagnosisRule[] = [
   },
 
   {
-    diagnosis: 'Potencjalna diagnoza Leiszmanioza',
+    diagnosis: 'Potencjalna Diagnoza: Leiszmanioza',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -798,7 +798,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie proszę wykonać biopsję i zinterpretować wyniki',
+    diagnosis: 'Postępowanie: Wykonać biopsję i zinterpretować wyniki',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -811,7 +811,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Pasożyty. Postępowanie Proszę wykonać dermatolofizę',
+    diagnosis: 'Diagnoza: Pasożyty. Postępowanie: Zweryfikować pasoyty i zastosować odpowiednie leczenie przeciwpasozytnicze',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -821,7 +821,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza niedoczynność tarczycy. Postępowanie Proszę podjąć leczenie.',
+    diagnosis: 'Diagnoza: niedoczynność tarczycy. Postępowanie: Podjąć leczenie.',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -835,7 +835,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Choroby wrodzone lub łysienie rozjaśnienie.',
+    diagnosis: 'Diagnoza: Choroby wrodzone lub łysienie rozsiane.',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -849,7 +849,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie Proszę zlecić wymagane badania w celu dalszej diagnozy',
+    diagnosis: 'Postępowanie: Zlecić wymagane badania w celu dalszej diagnozy',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -860,7 +860,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza choroba ogólnoustrojowa, zastosuj leczenie antybiotykowe',
+    diagnosis: 'Diagnoza: choroba ogólnoustrojowa, zastosuj antybiotykoterapię',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -872,7 +872,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Brak 100% diagnozy, proszę wykonać dodatkowe badania',
+    diagnosis: 'Brak wiedzy z danego mudułu',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -888,7 +888,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Brak 100% diagnozy, proszę wykonać dodatkowe badania',
+    diagnosis: 'Brak wiedzy z danego modułu',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -902,7 +902,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie proszę przystąpić do działań chirurgicznych',
+    diagnosis: 'Postępowanie: Przystąpić do działań chirurgicznych',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -918,7 +918,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie proszę zinterpretować nieprawidłowość i podjąć działanie chirurgiczne',
+    diagnosis: 'Postępowanie: Zinterpretować nieprawidłowość i podjąć zabieg chirurgiczny',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -933,7 +933,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza: świerzb. Postępowanie: Proszę zastosować leczenie przeciwświerzbowe',
+    diagnosis: 'Diagnoza: Zakażenie świerzbowcem. Postępowanie: Zastosować leczenie przeciwpasożytnicze',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -946,7 +946,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Podejrzenie choroby ogólnoustrojowej',
+    diagnosis: 'Diagnoza: Podejrzenie choroby ogólnoustrojowej',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -959,7 +959,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie zlecenie badań bakteryjnych. Potencjalna diagnoza Zatrucie bakteryjne układu pokarmowego',
+    diagnosis: 'Postępowanie: zlecenie badań bakteriologicznych. Potencjalna Diagnoza: Zatrucie bakteryjne układu pokarmowego',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -970,7 +970,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Zatrucie pokarmowe. Dodatkowe postępowanie Zrobienie testów alergicznych',
+    diagnosis: 'Diagnoza: Zatrucie pokarmowe.',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -981,7 +981,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie zlecić badania kału. Podać kroplówkę',
+    diagnosis: 'Postępowanie: zlecić badania kału. Postępowanie: Podać płyny dożylnie',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -991,7 +991,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza Zatrucie pokarmowe lub niestrawność, zalecana obserwacja',
+    diagnosis: 'Diagnoza: Zatrucie pokarmowe lub niestrawność, zalecana obserwacja',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -1001,7 +1001,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza wstępna Pies jest poobijany, zleć dodatkowe badania',
+    diagnosis: 'Postępowanie: sprawdź czy pies nie jest we wstrząsie. wykonaj RTG i badania krwi.',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'tak' },
@@ -1009,7 +1009,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie Wykonaj prześwietlenia i zaleć obserwację psa.',
+    diagnosis: 'Postępowanie: Wykonaj RTG i zaleć obserwację psa.',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
        { questionId: 21, expectedAnswer: 'tak' },
@@ -1020,7 +1020,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
    },
    {
-    diagnosis: 'Postępowanie Zatamuj krwawienie i podaj leki na zwiękrzenie krzepliwości krwi',
+    diagnosis: 'Postępowanie: Zatamuj krwawienie i podaj leki na zwiększenie krzepliwości krwi',
     rules: [
        { questionId: 1, expectedAnswer: 'pies' },
        { questionId: 21, expectedAnswer: 'tak' },
@@ -1031,7 +1031,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie podepnij zestaw do monitorowania pracy serca i podaj odpowiednie leki',
+    diagnosis: 'Postępowanie: podepnij zestaw do monitorowania pracy serca i podaj odpowiednie leki',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'tak' },
@@ -1051,7 +1051,7 @@ const diagnosisRules: DiagnosisRule[] = [
       ],
     },
   {
-    diagnosis: 'Diagnoza Przeprowadź badanie mające na celu znalezienie złamań',
+    diagnosis: 'Diagnoza: Przeprowadź badanie mające na celu znalezienie złamań',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'tak' },
@@ -1061,7 +1061,7 @@ const diagnosisRules: DiagnosisRule[] = [
       { questionId: 54, expectedAnswer: 'tak' }
     ],
   },{
-    diagnosis: 'Diagnoza Zwierzę nie żyje',
+    diagnosis: 'Diagnoza: Zwierzę nie żyje',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'tak' },
@@ -1177,7 +1177,7 @@ function App() {
           </div>
         ))}
         {diagnosis && <div ref={diagnosisRef} className="diagnosis-container">
-          <h2>Diagnoza:</h2>
+          <h2>Wynik:</h2>
           <p>{diagnosis}</p>
         </div>}
       </div>
