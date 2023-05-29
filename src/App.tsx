@@ -278,7 +278,7 @@ const initialQuestions: QuestionData[] = [
   
   {
     id: 26,
-    text: 'Postępowanie: zastosowanie profilaktycznego zwalczania pcheł. Czy świąd ustał?',
+    text: 'Postępowanie: Zastosowanie profilaktycznego zwalczania pcheł. Czy świąd ustał?',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [27,29,30] },
@@ -294,7 +294,7 @@ const initialQuestions: QuestionData[] = [
   },
   {
     id: 28,
-    text: 'Diagnoza: świerzb. Postępowanie: Zastosować leczenie przeciw świerzbowe',
+    text: 'Diagnoza: Świerzb. Postępowanie: Zastosować leczenie przeciwpasożytnicze',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
@@ -481,7 +481,7 @@ const questionContainerStyle: CSSProperties = {
 
 const diagnosisRules: DiagnosisRule[] = [
   {
-    diagnosis: 'Postępowanie: wykonaj dalszą diagnostykę',
+    diagnosis: 'Postępowanie: Wykonaj dalszą diagnostykę',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'nie' },
@@ -688,7 +688,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie: lecz doraźnie, pobierz krew do badań.',
+    diagnosis: 'Postępowanie: Lecz doraźnie, pobierz krew do badań.',
     rules: [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'tak' },
@@ -720,7 +720,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza: alergia. Postępowanie: Zastosować dietę eliminacyjną i zastosować preparaty przeciwświądowe',
+    diagnosis: 'Diagnoza: Alergia. Postępowanie: Zastosować dietę eliminacyjną i zastosować preparaty przeciwpasożytnicze',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -748,7 +748,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie: Zlecić biopsję. Prawdopodobna Diagnoza: nowotwór',
+    diagnosis: 'Postępowanie: Zlecić biopsję. Prawdopodobna Diagnoza: Nowotwór',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -785,7 +785,7 @@ const diagnosisRules: DiagnosisRule[] = [
   },
 
   {
-    diagnosis: 'Potencjalna Diagnoza: Leiszmanioza',
+    diagnosis: 'Potencjalna diagnoza: Leiszmanioza',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -821,7 +821,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza: niedoczynność tarczycy. Postępowanie: Podjąć leczenie.',
+    diagnosis: 'Diagnoza: Niedoczynność tarczycy. Postępowanie: Podjąć leczenie.',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -860,7 +860,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Diagnoza: choroba ogólnoustrojowa, zastosuj antybiotykoterapię',
+    diagnosis: 'Diagnoza: Choroba ogólnoustrojowa, zastosuj antybiotykoterapię',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -959,7 +959,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie: zlecenie badań bakteriologicznych. Potencjalna Diagnoza: Zatrucie bakteryjne układu pokarmowego',
+    diagnosis: 'Postępowanie: Zlecenie badań bakteriologicznych. Potencjalna Diagnoza: Zatrucie bakteryjne układu pokarmowego',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -981,7 +981,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie: zlecić badania kału. Postępowanie: Podać płyny dożylnie',
+    diagnosis: 'Postępowanie: Zlecić badania kału. Postępowanie: Podać płyny dożylnie',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'nie' },
@@ -1001,7 +1001,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie: sprawdź czy pies nie jest we wstrząsie. wykonaj RTG i badania krwi.',
+    diagnosis: 'Postępowanie: Sprawdź czy pies nie jest we wstrząsie. wykonaj RTG i badania krwi.',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'tak' },
@@ -1031,7 +1031,7 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-    diagnosis: 'Postępowanie: podepnij zestaw do monitorowania pracy serca i podaj odpowiednie leki',
+    diagnosis: 'Postępowanie: Podepnij zestaw do monitorowania pracy serca i podaj odpowiednie leki',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'tak' },
@@ -1155,7 +1155,7 @@ function App() {
 
   return (
     <>
-      <div className='App-header'> VetApp</div>
+      <div className='App-header'> VetAdvice</div>
       <div className='App-header' >
       <button className='resetButton' onClick={resetQuestions}>Rozpocznij</button>
         <button className='resetButton' onClick={resetQuestions}>Resetuj odpowiedzi</button>
