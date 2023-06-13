@@ -33,16 +33,16 @@ const initialQuestions: QuestionData[] = [
     id: 1,
     text: 'Pacjentem jest kot czy pies?',
     answers: [
-      { text: 'pies', isActive: false, isClicked: false, excludesQuestions: [2,3,4,5,6,7,8,9,10,11,12,14,15,16,17,18,19,20] },
-      { text: 'kot', isActive: false, isClicked: false, excludesQuestions: [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54] },
+      { text: 'pies', isActive: false, isClicked: false, excludesQuestions: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20] },
+      { text: 'kot', isActive: false, isClicked: false, excludesQuestions: [21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54] },
     ],
   },
   {
     id: 2,
     text: 'Czy kot ma napady padaczkowe?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [4,5,6,7,8,9,10,11,12,14] },//include[3,15,16,17,18,19,20]
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [3,15,16,17,18,19,20] },//include[4,5,6,7,8,9,10,11,12,14]
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [4, 5, 6, 7, 8, 9, 10, 11, 12, 14] },//include[3,15,16,17,18,19,20]
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [3, 15, 16, 17, 18, 19, 20] },//include[4,5,6,7,8,9,10,11,12,14]
       { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -50,8 +50,8 @@ const initialQuestions: QuestionData[] = [
     id: 4,
     text: 'Czy kot ma powiększenie obrysu jamy brzusznej?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [3,15,16,17,18,19,20] },//include[5,6,7,8,9,10,11,12,14]
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [5,6,7,8,9,10,11,12,14] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [3, 15, 16, 17, 18, 19, 20] },//include[5,6,7,8,9,10,11,12,14]
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [5, 6, 7, 8, 9, 10, 11, 12, 14] },
       { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -59,40 +59,40 @@ const initialQuestions: QuestionData[] = [
     id: 21,
     text: 'Czy pies jest po urazie?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49] },//include[22,50,51,52,53,54]
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [22,50,51,52,53,54] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49] },//include[22,50,51,52,53,54]
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [22, 50, 51, 52, 53, 54] },
     ],
   },
   {
     id: 23,
     text: 'Czy u psa występuje biegunka?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [22,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,45,48,49,50,51,52,53,54] },//include[39,49,40,48,41,42,43,44,46,47]
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46,47,44,43,42,41,40,48,49,39] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [22, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 45, 48, 49, 50, 51, 52, 53, 54] },//include[39,49,40,48,41,42,43,44,46,47]
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46, 47, 44, 43, 42, 41, 40, 48, 49, 39] },
     ],
   },
   {
     id: 24,
     text: 'Czy u psa występuje świąd?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [22,28,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54] }, //include[25,26,27,29,30]
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [25,26,27,29,30] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [22, 28, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54] }, //include[25,26,27,29,30]
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [25, 26, 27, 29, 30] },
     ],
   },
   {
     id: 31,
     text: 'Czy występują wyłysienia?',
     answers: [
-      { text: 'występują', isActive: false, isClicked: false, excludesQuestions: [22,32,33,34,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54] },//included[35,36,37,38]
-      { text: 'nie występują', isActive: false, isClicked: false, excludesQuestions: [35,36,37,38] },
+      { text: 'występują', isActive: false, isClicked: false, excludesQuestions: [22, 32, 33, 34, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54] },//included[35,36,37,38]
+      { text: 'nie występują', isActive: false, isClicked: false, excludesQuestions: [35, 36, 37, 38] },
     ],
   },
   {
     id: 32,
     text: 'Czy znaleziono na ciele jakieś guzy?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [33,34] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [22,25,26,27,28,29,30,31,32,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54] },//included[33,34]
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [33, 34] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [22, 25, 26, 27, 28, 29, 30, 31, 32, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54] },//included[33,34]
     ],
   },
   {
@@ -100,7 +100,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy znaleziono owrzodzenia?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [34] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [33,22,25,26,27,28,29,30,31,32,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [33, 22, 25, 26, 27, 28, 29, 30, 31, 32, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54] },
     ],
   },
   {
@@ -115,16 +115,16 @@ const initialQuestions: QuestionData[] = [
     id: 3,
     text: 'Czy możesz stwierdzić u kota stan padaczkowy?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [15,16,17,18,19,20] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [15, 16, 17, 18, 19, 20] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
-  
+
   {
     id: 5,
     text: 'Czy w okolicy żołądka jest wypuk bębenkowy?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [6,7,8,9,10,12,11,14] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [6, 7, 8, 9, 10, 12, 11, 14] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -132,7 +132,7 @@ const initialQuestions: QuestionData[] = [
     id: 22,
     text: 'Czy wszedł o własnych siłach?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [50,51,52,53,54,46,47,44,43,42,41,40,48,49,39,27,29,30,26,25] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [50, 51, 52, 53, 54, 46, 47, 44, 43, 42, 41, 40, 48, 49, 39, 27, 29, 30, 26, 25] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -141,7 +141,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy występują również wymioty?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [49] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46,47,44,43,42,41,40] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46, 47, 44, 43, 42, 41, 40] },
     ],
   },
   {
@@ -149,7 +149,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy znaleziono pasożyty?',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [27,29,30,26] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [27, 29, 30, 26] },
     ],
   },
   {
@@ -165,14 +165,14 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy występuje bladość błon śluzowych i ostry brzuch?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [7,8,9,10,11,12,14] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [7, 8, 9, 10, 11, 12, 14] },
     ],
   },
   {
     id: 7,
     text: 'Czy zwierzę miało kontakt z trucizną?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [8,9,10,11,12,14] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [8, 9, 10, 11, 12, 14] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
@@ -181,7 +181,7 @@ const initialQuestions: QuestionData[] = [
     id: 8,
     text: 'Czy zwierzę jest płci żeńskiej?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [14,12,11] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [14, 12, 11] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [9] },
     ],
   },
@@ -212,7 +212,7 @@ const initialQuestions: QuestionData[] = [
     id: 12,
     text: 'Czy w badaniu RTG/USG widać zmiany w macicy/jajnikach?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [10,11] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [10, 11] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [14] },
     ],
   },
@@ -228,7 +228,7 @@ const initialQuestions: QuestionData[] = [
     id: 15,
     text: 'Czy kot zjadł coś podejrzewanego lub mógł mieć kontakt z substancją trującą?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [16,17,18,19,20] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [16, 17, 18, 19, 20] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
       { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
@@ -238,14 +238,14 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy u kota w momencie wystąpienia problemów atak pojawił się po raz pierwszy?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [17,18,19,20] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [17, 18, 19, 20] },
     ],
   },
   {
     id: 17,
     text: 'Czy poziom insuliny jest podwyższony lub prawidłowy?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [18,19,20] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [18, 19, 20] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -254,7 +254,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy poziom insuliny jest obniżony?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [19,20] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [19, 20] },
     ],
   },
   {
@@ -273,15 +273,15 @@ const initialQuestions: QuestionData[] = [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
-   
-  
-  
+
+
+
   {
     id: 26,
     text: 'Postępowanie: Zastosowanie profilaktycznego zwalczania pcheł. Czy świąd ustał?',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [27,29,30] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [27, 29, 30] },
     ],
   },
   {
@@ -289,7 +289,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Postępowanie: Wykonać badanie poznawcze na obecność świerzbu. Czy znaleziono objawy świerzbu',
     answers: [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [29,30] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [29, 30] },
     ],
   },
   {
@@ -316,13 +316,13 @@ const initialQuestions: QuestionData[] = [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
-  
-  
+
+
   {
     id: 36,
     text: 'Czy badania wskazały na obecność pasożytów?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [37,38] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [37, 38] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
@@ -342,13 +342,13 @@ const initialQuestions: QuestionData[] = [
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
-  
+
   {
     id: 40,
     text: 'Czy objawy są przewlekłe?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [48] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46,47,44,43,42,41] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46, 47, 44, 43, 42, 41] },
     ],
   },
   {
@@ -356,7 +356,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy zlecono badanie morfologiczne krwi, biochemiczne surowicy i badanie kału?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46,47,44,43,42] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46, 47, 44, 43, 42] },
     ],
   },
   {
@@ -364,7 +364,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy badanie morfologiczne lub biochemiczne nie było w normie?',
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46,47,44,43] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [46, 47, 44, 43] },
     ],
   },
   {
@@ -372,7 +372,7 @@ const initialQuestions: QuestionData[] = [
     text: 'Czy badanie kału również było poza normą?',
     answers: [
       { text: 'Tak było poza normą', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'Nie, było w normie', isActive: false, isClicked: false, excludesQuestions: [47,46,44] },
+      { text: 'Nie, było w normie', isActive: false, isClicked: false, excludesQuestions: [47, 46, 44] },
     ],
   },
   {
@@ -419,8 +419,8 @@ const initialQuestions: QuestionData[] = [
     id: 50,
     text: 'Czy oddycha?',
     answers: [
-      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [53,54] },
-      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [51,52] },
+      { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [53, 54] },
+      { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [51, 52] },
     ],
   },
   {
@@ -514,18 +514,18 @@ const diagnosisRules: DiagnosisRule[] = [
       { questionId: 11, expectedAnswer: 'tak' },
     ],
   },
-   {
-      diagnosis: 'Postępowanie: Wykonaj USG narządów wewnętrznych',
-      rules: [
-        { questionId: 1, expectedAnswer: 'kot' },
+  {
+    diagnosis: 'Postępowanie: Wykonaj USG narządów wewnętrznych',
+    rules: [
+      { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'tak' },
       { questionId: 3, expectedAnswer: 'nie' },
       { questionId: 15, expectedAnswer: 'nie' },
       { questionId: 16, expectedAnswer: 'tak' },
       { questionId: 17, expectedAnswer: 'nie' },
       { questionId: 18, expectedAnswer: 'nie' },
-      ],
-    },
+    ],
+  },
   {
     diagnosis: 'Diagnoza: Zatrucie trucizną niewiadomego pochodzenia',
     rules: [
@@ -572,7 +572,7 @@ const diagnosisRules: DiagnosisRule[] = [
       { questionId: 1, expectedAnswer: 'kot' },
       { questionId: 2, expectedAnswer: 'nie' },
       { questionId: 4, expectedAnswer: 'nie' },
-      
+
     ],
   },
   {
@@ -705,7 +705,7 @@ const diagnosisRules: DiagnosisRule[] = [
       { questionId: 31, expectedAnswer: 'tak' },
       { questionId: 35, expectedAnswer: 'tak' },
       { questionId: 36, expectedAnswer: 'tak' },
-      
+
     ],
   },
   {
@@ -942,7 +942,7 @@ const diagnosisRules: DiagnosisRule[] = [
       { questionId: 25, expectedAnswer: 'nie' },
       { questionId: 26, expectedAnswer: 'nie' },
       { questionId: 27, expectedAnswer: 'tak' },
-      
+
     ],
   },
   {
@@ -1012,22 +1012,22 @@ const diagnosisRules: DiagnosisRule[] = [
     diagnosis: 'Postępowanie: Wykonaj RTG i zaleć obserwację psa.',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
-       { questionId: 21, expectedAnswer: 'tak' },
-       { questionId: 22, expectedAnswer: 'nie' },
-       { questionId: 50, expectedAnswer: 'tak' },
-       { questionId: 51, expectedAnswer: 'tak' },
-       { questionId: 52, expectedAnswer: 'nie' },
+      { questionId: 21, expectedAnswer: 'tak' },
+      { questionId: 22, expectedAnswer: 'nie' },
+      { questionId: 50, expectedAnswer: 'tak' },
+      { questionId: 51, expectedAnswer: 'tak' },
+      { questionId: 52, expectedAnswer: 'nie' },
     ],
-   },
-   {
+  },
+  {
     diagnosis: 'Postępowanie: Zatamuj krwawienie i podaj leki na zwiększenie krzepliwości krwi',
     rules: [
-       { questionId: 1, expectedAnswer: 'pies' },
-       { questionId: 21, expectedAnswer: 'tak' },
-       { questionId: 22, expectedAnswer: 'nie' },
-       { questionId: 50, expectedAnswer: 'tak' },
-       { questionId: 51, expectedAnswer: 'tak' },
-       { questionId: 52, expectedAnswer: 'tak' },
+      { questionId: 1, expectedAnswer: 'pies' },
+      { questionId: 21, expectedAnswer: 'tak' },
+      { questionId: 22, expectedAnswer: 'nie' },
+      { questionId: 50, expectedAnswer: 'tak' },
+      { questionId: 51, expectedAnswer: 'tak' },
+      { questionId: 52, expectedAnswer: 'tak' },
     ],
   },
   {
@@ -1041,15 +1041,15 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
   {
-      diagnosis: 'Przystąp do resuscytacji',
-      rules: [
+    diagnosis: 'Przystąp do resuscytacji',
+    rules: [
       { questionId: 1, expectedAnswer: 'pies' },
       { questionId: 21, expectedAnswer: 'tak' },
       { questionId: 22, expectedAnswer: 'nie' },
       { questionId: 50, expectedAnswer: 'nie' },
       { questionId: 53, expectedAnswer: 'nie' }
-      ],
-    },
+    ],
+  },
   {
     diagnosis: 'Diagnoza: Przeprowadź badanie mające na celu znalezienie złamań',
     rules: [
@@ -1060,7 +1060,7 @@ const diagnosisRules: DiagnosisRule[] = [
       { questionId: 53, expectedAnswer: 'tak' },
       { questionId: 54, expectedAnswer: 'tak' }
     ],
-  },{
+  }, {
     diagnosis: 'Diagnoza: Zwierzę nie żyje',
     rules: [
       { questionId: 1, expectedAnswer: 'pies' },
@@ -1072,15 +1072,15 @@ const diagnosisRules: DiagnosisRule[] = [
     ],
   },
 ];
-  
+
 
 function App() {
   const [questions, setQuestions] = useState(initialQuestions);
   const [diagnosis, setDiagnosis] = useState<string | null>(null);
   const diagnosisRef = useRef<HTMLDivElement>(null);
   const [klik, setKlik] = useState<number>(0)
-  const [czasStart,setCzasStart]= useState(new Date().getTime())
-  
+  const [czasStart, setCzasStart] = useState(new Date().getTime())
+
   const onSelectAnswer = (id: number, answerText: string) => {
     const updatedQuestions = questions.map(question => {
       if (question.id === id) {
@@ -1110,30 +1110,30 @@ function App() {
       return question;
     });
 
-     // Sprawdzanie reguł diagnozy
-     const generateDiagnosis = (questions: QuestionData[], rules: DiagnosisRule[]): string | null => {
+    // Sprawdzanie reguł diagnozy
+    const generateDiagnosis = (questions: QuestionData[], rules: DiagnosisRule[]): string | null => {
       for (let i = 0; i < rules.length; i++) {
         const rule = rules[i];
         const allConditionsMet = rule.rules.every(({ questionId, expectedAnswer }) => {
           const question = questions.find(q => q.id === questionId);
           if (!question) return false;
-    
+
           const answer = question.answers.find(a => a.isClicked);
           return answer && answer.text === expectedAnswer;
         });
-    
+
         if (allConditionsMet) {
           // Oblicz czas trwania
-    let czasTrwania: number = new Date().getTime() - czasStart;
-    console.log('Liczba kliknięć: ' + klik);
-  console.log('Czas trwania: ' + czasTrwania + ' ms');
+          let czasTrwania: number = new Date().getTime() - czasStart;
+          console.log('Liczba kliknięć: ' + klik);
+          console.log('Czas trwania: ' + czasTrwania + ' ms');
           return rule.diagnosis;
         }
       }
-    
+
       return null;
     };
-    
+
 
     setQuestions(updatedQuestions);
     // Aktualizacja diagnozy
@@ -1151,9 +1151,10 @@ function App() {
     });
     setQuestions(resettedQuestions);
     setKlik(klik + 1);
-    if(klik === 1) {
+    if (klik === 1) {
       let startTime = new Date().getTime();
-      setCzasStart(startTime)}
+      setCzasStart(startTime)
+    }
   };
 
 
@@ -1162,15 +1163,15 @@ function App() {
       diagnosisRef.current.scrollIntoView({ behavior: "smooth" });
     }
   }, [diagnosis]);
-  
+
 
   return (
     <>
       <div className='App-header'> VetAdvice</div>
       <div className='App-header' >
-      <button className='resetButton' onClick={resetQuestions}>Rozpocznij</button>
+        <button className='resetButton' onClick={resetQuestions}>Rozpocznij</button>
         <button className='resetButton' onClick={resetQuestions}>Resetuj odpowiedzi</button>
-        </div>
+      </div>
       <div>
         {questions.map(({ id, text, answers, isActive }) => (
           <div style={{ ...questionContainerStyle, backgroundColor: isActive ? '#f0f0f0' : '#ccc' }} key={id}>
