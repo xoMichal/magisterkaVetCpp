@@ -1078,6 +1078,8 @@ function App() {
   const [questions, setQuestions] = useState(initialQuestions);
   const [diagnosis, setDiagnosis] = useState<string | null>(null);
   const diagnosisRef = useRef<HTMLDivElement>(null);
+  const [klik, setKlik] = useState<number>(0)
+  const [czasStart,setCzasStart]= useState(new Date().getTime())
   
   const onSelectAnswer = (id: number, answerText: string) => {
     const updatedQuestions = questions.map(question => {
@@ -1104,6 +1106,7 @@ function App() {
 
         return { ...question, answers: updatedAnswers };
       }
+      setKlik(klik + 1);
       return question;
     });
 
@@ -1120,6 +1123,10 @@ function App() {
         });
     
         if (allConditionsMet) {
+          // Oblicz czas trwania
+    let czasTrwania: number = new Date().getTime() - czasStart;
+    console.log('Liczba kliknięć: ' + klik);
+  console.log('Czas trwania: ' + czasTrwania + ' ms');
           return rule.diagnosis;
         }
       }
@@ -1143,6 +1150,10 @@ function App() {
       return { ...question, answers: resettedAnswers, isActive: true };
     });
     setQuestions(resettedQuestions);
+    setKlik(klik + 1);
+    if(klik === 1) {
+      let startTime = new Date().getTime();
+      setCzasStart(startTime)}
   };
 
 
