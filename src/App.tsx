@@ -43,7 +43,6 @@ const initialQuestions: QuestionData[] = [
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [4, 5, 6, 7, 8, 9, 10, 11, 12, 14] },//include[3,15,16,17,18,19,20]
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [3, 15, 16, 17, 18, 19, 20] },//include[4,5,6,7,8,9,10,11,12,14]
-      { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
   {
@@ -52,7 +51,6 @@ const initialQuestions: QuestionData[] = [
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [3, 15, 16, 17, 18, 19, 20] },//include[5,6,7,8,9,10,11,12,14]
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [5, 6, 7, 8, 9, 10, 11, 12, 14] },
-      { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
   {
@@ -174,7 +172,6 @@ const initialQuestions: QuestionData[] = [
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [8, 9, 10, 11, 12, 14] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
   {
@@ -230,7 +227,6 @@ const initialQuestions: QuestionData[] = [
     answers: [
       { text: 'tak', isActive: false, isClicked: false, excludesQuestions: [16, 17, 18, 19, 20] },
       { text: 'nie', isActive: false, isClicked: false, excludesQuestions: [] },
-      { text: 'nie wiem', isActive: false, isClicked: false, excludesQuestions: [] },
     ],
   },
   {
